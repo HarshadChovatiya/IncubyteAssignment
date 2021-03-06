@@ -61,4 +61,10 @@ class TestStringCalculator {
 		ArithmeticException thrown = assertThrows(ArithmeticException.class, () -> string_calc.Add("1,-23"));
 		assertTrue(thrown.getMessage().contains("negatives not allowed : -23,"));
 	}
+
+	@Test
+	void test_number_bigger_than_thousand() {
+		int output = string_calc.Add("1001,2");
+		assertEquals(2, output);
+	}
 }
