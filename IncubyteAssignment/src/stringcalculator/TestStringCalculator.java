@@ -56,4 +56,9 @@ class TestStringCalculator {
 		assertEquals(3, output);
 	}
 	
+	@Test
+	void test_negative_numbers() {
+		ArithmeticException thrown = assertThrows(ArithmeticException.class, () -> string_calc.Add("1,-23"));
+		assertTrue(thrown.getMessage().contains("negatives not allowed : -23,"));
+	}
 }

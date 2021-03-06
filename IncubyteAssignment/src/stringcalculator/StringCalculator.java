@@ -21,12 +21,24 @@ public class StringCalculator {
 		return first_line.substring(2);
 	}
 	
-	private int calculate_sum(String[] operands) {
+	private int calculate_sum_and_return_negative(String[] operands) throws ArithmeticException {
 		answer = 0;
+		String negativeNumbers = "";
 		for(String number: operands) {
 			if(!number.isEmpty()) {
-				answer += Integer.parseInt(number);				
+				int temp = Integer.parseInt(number);
+				if(temp < 0) {
+					negativeNumbers += number;
+					negativeNumbers += ",";
+				}
+				else {
+					answer += temp;
+				}
 			}
+		}
+		
+		if(!negativeNumbers.isEmpty()) {
+			throw new ArithmeticException("negatives not allowed : " + negativeNumbers);
 		}
 		
 		return answer;
@@ -51,7 +63,7 @@ public class StringCalculator {
 		
 		String[] operands = get_number_in_string_form(numbers, delimeter);
 	
-		answer = calculate_sum(operands);
+		answer = calculate_sum_and_return_negative(operands);
 		return answer;
 	}
 }
