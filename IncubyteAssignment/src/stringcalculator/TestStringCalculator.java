@@ -26,4 +26,10 @@ class TestStringCalculator {
 		assertEquals(5, output);
 	}
 	
+	@Test
+	void test_two_numbers_with_default_delimeter() {
+		int output = string_calc.Add("5,4");
+		assertEquals(9, output);
+	}
+	
 }
