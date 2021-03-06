@@ -32,4 +32,10 @@ class TestStringCalculator {
 		assertEquals(9, output);
 	}
 	
+	@Test
+	void test_multiple_numbers_with_default_delimeter() {
+		int output = string_calc.Add("5,4,3,2,1");
+		assertEquals(15, output);
+	}
+	
 }
