@@ -17,10 +17,16 @@ public class StringCalculator {
 		return numbers;
 	}
 	
+	private String get_single_delimiter_without_brackets(String first_line) {
+		return first_line.substring(2);
+	}
+	
 	private int calculate_sum(String[] operands) {
 		answer = 0;
 		for(String number: operands) {
-			answer += Integer.parseInt(number);
+			if(!number.isEmpty()) {
+				answer += Integer.parseInt(number);				
+			}
 		}
 		
 		return answer;
@@ -31,7 +37,17 @@ public class StringCalculator {
 		if(numbers.isEmpty()) {
 			return 0;
 		}
-		delimeter = get_default_delimiter();
+		if(numbers.startsWith("//")) {
+			String first_line = numbers.split("\n")[0];
+			numbers = numbers.split("\n")[1];
+			
+			if(first_line.charAt(2) != '[') {
+				delimeter = get_single_delimiter_without_brackets(first_line);
+			}
+		}
+		else {
+			delimeter = get_default_delimiter();			
+		}
 		
 		String[] operands = get_number_in_string_form(numbers, delimeter);
 	

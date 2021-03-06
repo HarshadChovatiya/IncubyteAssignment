@@ -50,4 +50,10 @@ class TestStringCalculator {
 		assertEquals(15, output);
 	}
 	
+	@Test
+	void test_single_delimiter_without_brackets() {
+		int output = string_calc.Add("//;\n1;2");
+		assertEquals(3, output);
+	}
+	
 }
