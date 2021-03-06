@@ -15,9 +15,10 @@ class TestStringCalculator {
 	}
 
 	@Test
-	void test() {
-		int output = string_calc.Add("1234");
+	void test_empty_string() {
+		int output = string_calc.Add("");
 		assertEquals(0, output);
 	}
 
+	
 }
