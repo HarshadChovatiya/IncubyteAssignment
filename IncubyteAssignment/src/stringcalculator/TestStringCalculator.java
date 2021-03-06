@@ -20,5 +20,10 @@ class TestStringCalculator {
 		assertEquals(0, output);
 	}
 
+	@Test
+	void test_single_number() {
+		int output = string_calc.Add("5");
+		assertEquals(5, output);
+	}
 	
 }
