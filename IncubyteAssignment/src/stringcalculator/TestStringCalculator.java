@@ -38,4 +38,16 @@ class TestStringCalculator {
 		assertEquals(15, output);
 	}
 	
+	@Test
+	void test_two_numbers_with_newline_and_comma_delimeter() {
+		int output = string_calc.Add("1\n2");
+		assertEquals(3, output);
+	}
+	
+	@Test
+	void test_multiple_numbers_with_newline_and_comma_delimeter() {
+		int output = string_calc.Add("5\n4,3,2\n1");
+		assertEquals(15, output);
+	}
+	
 }

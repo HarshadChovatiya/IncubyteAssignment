@@ -9,7 +9,7 @@ public class StringCalculator {
 	}
 	
 	private String get_default_delimiter() {
-		return ",";
+		return ",|\n";
 	}
 
 	private String[] get_number_in_string_form(String number_string, String delimeter) {
