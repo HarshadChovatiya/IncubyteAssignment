@@ -10,28 +10,28 @@ public class StringCalculator {
 		answer = 0;
 	}
 	
-	private String get_default_delimiter() {
+	private String getDefaultDelimeter() {
 		return ",|\n";
 	}
 
-	private String[] get_number_in_string_form(String number_string, String delimeter) {
+	private String[] getNumberInStringForm(String number_string, String delimeter) {
 		String[] numbers = number_string.split(delimeter, 0);
 		return numbers;
 	}
 	
-	private String get_single_delimiter_without_brackets(String first_line) {
-		return first_line.substring(2);
+	private String getSingleDelimiterWithoutBrackets(String firstLine) {
+		return firstLine.substring(2);
 	}
 	
-	private String get_delimeter_of_any_length(String first_line) {
+	private String getDelimeterOfAnyLength(String firstLine) {
 		String delimeter = "";
 		List<String> list=new ArrayList<String>();
-		for(int i=2; i<first_line.length(); i++) {
+		for(int i=2; i<firstLine.length(); i++) {
 			String temp = "";
-			temp += first_line.charAt(i);
+			temp += firstLine.charAt(i);
 			int j=i+1;
-			while(j < first_line.length() && first_line.charAt(j) != ']') {
-				temp += first_line.charAt(j);
+			while(j < firstLine.length() && firstLine.charAt(j) != ']') {
+				temp += firstLine.charAt(j);
 				j++;
 			}
 			temp += "]";
@@ -47,7 +47,7 @@ public class StringCalculator {
 		return delimeter;
 	}
 	
-	private int calculate_sum_and_return_negative(String[] operands) throws ArithmeticException {
+	private int calculateSumAndReturnNegative(String[] operands) throws ArithmeticException {
 		answer = 0;
 		String negativeNumbers = "";
 		for(String number: operands) {
@@ -78,23 +78,23 @@ public class StringCalculator {
 			return 0;
 		}
 		if(numbers.startsWith("//")) {
-			String first_line = numbers.split("\n")[0];
+			String firstLine = numbers.split("\n")[0];
 			numbers = numbers.split("\n")[1];
 			
-			if(first_line.charAt(2) != '[') {
-				delimeter = get_single_delimiter_without_brackets(first_line);
+			if(firstLine.charAt(2) != '[') {
+				delimeter = getSingleDelimiterWithoutBrackets(firstLine);
 			}
 			else {
-				delimeter = get_delimeter_of_any_length(first_line);
+				delimeter = getDelimeterOfAnyLength(firstLine);
 			}
 		}
 		else {
-			delimeter = get_default_delimiter();			
+			delimeter = getDefaultDelimeter();			
 		}
 		
-		String[] operands = get_number_in_string_form(numbers, delimeter);
+		String[] operands = getNumberInStringForm(numbers, delimeter);
 	
-		answer = calculate_sum_and_return_negative(operands);
+		answer = calculateSumAndReturnNegative(operands);
 
 		return answer;
 	}
