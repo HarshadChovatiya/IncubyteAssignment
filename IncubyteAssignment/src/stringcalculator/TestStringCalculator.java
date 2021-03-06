@@ -73,4 +73,16 @@ class TestStringCalculator {
 		int output = string_calc.Add("//[***]\n1***2***3");
 		assertEquals(6, output);
 	}
+	
+	@Test
+	void test_multiple_delimeter() {
+		int output = string_calc.Add("//[*][%]\n1*2%3");
+		assertEquals(6, output);
+	}
+	
+	@Test
+	void test_multiple_delimeter_of_any_length() {
+		int output = string_calc.Add("//[***][%%%]\n1***2%%%3");
+		assertEquals(6, output);
+	}
 }
