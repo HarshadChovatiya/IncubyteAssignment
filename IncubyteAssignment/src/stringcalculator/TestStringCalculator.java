@@ -67,4 +67,10 @@ class TestStringCalculator {
 		int output = string_calc.Add("1001,2");
 		assertEquals(2, output);
 	}
+	
+	@Test
+	void test_delimeter_of_any_length() {
+		int output = string_calc.Add("//[***]\n1***2***3");
+		assertEquals(6, output);
+	}
 }
