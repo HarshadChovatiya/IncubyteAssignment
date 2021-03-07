@@ -38,4 +38,5 @@
 
 ### Assumption
 > User will not enter any alphabet character in numbers string to perform addition.
+
 > As mentioned in the problem definition not tested the code for invalid inputs.
