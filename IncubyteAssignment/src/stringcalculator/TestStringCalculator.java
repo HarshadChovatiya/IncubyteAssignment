@@ -27,25 +27,25 @@ class TestStringCalculator {
 	}
 	
 	@Test
-	void testTwoNumbersWithDefaultDelimeter() {
+	void testTwoNumbersWithDefaultDelimiter() {
 		int output = string_calc.Add("5,4");
 		assertEquals(9, output);
 	}
 	
 	@Test
-	void testMultipleNumbersWithDefaultDelimeter() {
+	void testMultipleNumbersWithDefaultDelimiter() {
 		int output = string_calc.Add("5,4,3,2,1");
 		assertEquals(15, output);
 	}
 	
 	@Test
-	void testTwoNumbersWithNewlineAndCommaDelimeter() {
+	void testTwoNumbersWithNewlineAndCommaDelimiter() {
 		int output = string_calc.Add("1\n2");
 		assertEquals(3, output);
 	}
 	
 	@Test
-	void testMultipleNumbersWithNewlineAndCommaDelimeter() {
+	void testMultipleNumbersWithNewlineAndCommaDelimiter() {
 		int output = string_calc.Add("5\n4,3,2\n1");
 		assertEquals(15, output);
 	}
@@ -69,19 +69,19 @@ class TestStringCalculator {
 	}
 	
 	@Test
-	void testDelimeterOfAnyLength() {
+	void testDelimiterOfAnyLength() {
 		int output = string_calc.Add("//[***]\n1***2***3");
 		assertEquals(6, output);
 	}
 	
 	@Test
-	void testMultipleDelimeter() {
+	void testMultipleDelimiter() {
 		int output = string_calc.Add("//[*][%]\n1*2%3");
 		assertEquals(6, output);
 	}
 	
 	@Test
-	void testMultipleDelimeterOfAnyLength() {
+	void testMultipleDelimiterOfAnyLength() {
 		int output = string_calc.Add("//[***][%%%]\n1***2%%%3");
 		assertEquals(6, output);
 	}

@@ -10,21 +10,22 @@ public class StringCalculator {
 		answer = 0;
 	}
 	
-	private String getDefaultDelimeter() {
+	private String getDefaultDelimiter() {
 		return ",|\n";
 	}
 
-	private String[] getNumberInStringForm(String number_string, String delimeter) {
-		String[] numbers = number_string.split(delimeter, 0);
+	private String[] getNumberInStringForm(String number_string, String delimiter) {
+		String[] numbers = number_string.split(delimiter, 0);
 		return numbers;
 	}
 	
+	// to handle the case where input is in "//;\n1;2" format
 	private String getSingleDelimiterWithoutBrackets(String firstLine) {
 		return firstLine.substring(2);
 	}
 	
-	private String getDelimeterOfAnyLength(String firstLine) {
-		String delimeter = "";
+	private String getDelimiterOfAnyLength(String firstLine) {
+		String delimiter = "";
 		List<String> list=new ArrayList<String>();
 		for(int i=2; i<firstLine.length(); i++) {
 			String temp = "";
@@ -39,12 +40,12 @@ public class StringCalculator {
 			list.add(temp);
 		}
 		for(String x: list) {
-			delimeter += x;
-			delimeter += "|";
+			delimiter += x;
+			delimiter += "|";
 		}
-		delimeter = delimeter.substring(0, delimeter.length()-1);
+		delimiter = delimiter.substring(0, delimiter.length()-1);
 		
-		return delimeter;
+		return delimiter;
 	}
 	
 	private int calculateSumAndReturnNegative(String[] operands) throws ArithmeticException {
@@ -73,7 +74,7 @@ public class StringCalculator {
 	}
 	
 	public int Add(String numbers) {
-		String delimeter = "";
+		String delimiter = "";
 		if(numbers.isEmpty()) {
 			return 0;
 		}
@@ -82,17 +83,17 @@ public class StringCalculator {
 			numbers = numbers.split("\n")[1];
 			
 			if(firstLine.charAt(2) != '[') {
-				delimeter = getSingleDelimiterWithoutBrackets(firstLine);
+				delimiter = getSingleDelimiterWithoutBrackets(firstLine);
 			}
 			else {
-				delimeter = getDelimeterOfAnyLength(firstLine);
+				delimiter = getDelimiterOfAnyLength(firstLine);
 			}
 		}
 		else {
-			delimeter = getDefaultDelimeter();			
+			delimiter = getDefaultDelimiter();			
 		}
 		
-		String[] operands = getNumberInStringForm(numbers, delimeter);
+		String[] operands = getNumberInStringForm(numbers, delimiter);
 	
 		answer = calculateSumAndReturnNegative(operands);
 
